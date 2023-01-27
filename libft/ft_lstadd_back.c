@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 20:21:06 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/11/30 18:15:10 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/02 14:45:05 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int ac, char **av)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_data data;
-	
-	data.title = av[1];
-	if (ac == 2)
+	t_list	*tmp;
+
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		if (get_map(data.title) == 1)
-		{
-			printf("bonne map");
-		}
-		else 
-		{
-			printf("erreur de map");
-		}
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
 	}
-	return(0);
 }

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 20:21:06 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/11/30 19:30:49 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/02 14:45:57 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int ac, char **av)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_data data;
-	
-	data.title = av[1];
-	if (ac == 2)
-	{
-		if (get_map(data.title) == 1)
-		{
-			printf("bonne map");
-		}
-		else 
-		{
-			printf("erreur de map");
-		}
-	}
-	return(0);
+	if (!lst || !del)
+		return ;
+	(*del)(lst->content);
+	free(lst);
 }

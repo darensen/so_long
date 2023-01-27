@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 20:21:06 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/11/30 20:35:57 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/02 14:41:41 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int ac, char **av)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_data data;
-	
-	data.title = av[1];
-	if (ac == 2)
+	t_list	*tmp;
+
+	while (lst)
 	{
-		if (get_map(data.title) == 1)
-		{
-			printf("bonne map");
-		}
-		else 
-		{
-			printf("erreur de map");
-		}
+		tmp = lst->next;
+		(*f)(lst->content);
+		lst = tmp;
 	}
-	return(0);
 }

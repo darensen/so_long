@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 20:21:06 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/11/10 15:20:51 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 17:35:29 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int ac, char **av)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_data data;
-	
-	data.title = av[1];
-	if (ac == 2)
+	size_t	i;
+	char	*str;
+
+	str = (char *)s;
+	i = 0;
+	while (n > i)
 	{
-		if (get_map(data.title) == 1)
-		{
-			printf("bonne map");
-		}
-		else 
-		{
-			printf("erreur de map");
-		}
+		str[i] = c;
+		i++;
 	}
-	return(0);
+	return (s);
 }

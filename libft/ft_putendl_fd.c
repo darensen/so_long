@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 20:21:06 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/11/21 18:28:27 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 14:05:33 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int ac, char **av)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_data data;
-	
-	data.title = av[1];
-	if (ac == 2)
+	int	i;
+
+	i = 0;
+	if (!s || !fd)
+		return ;
+	while (s[i])
 	{
-		if (get_map(data.title) == 1)
-		{
-			printf("bonne map");
-		}
-		else 
-		{
-			printf("erreur de map");
-		}
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return(0);
+	write(fd, "\n", 1);
 }

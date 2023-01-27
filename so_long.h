@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/25 16:22:34 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/01/27 19:48:43 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <X11/X.h>
 # include <unistd.h>
 # include <stddef.h>
+# include "libft/libft.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
@@ -47,7 +48,7 @@ char	*line(char *get_next);
 char	*next(char *str);
 void	creat_window(t_data data);
 int		get_map(char *str);
-int map_check(char **str);
+int		map_check(char **str, int size);
 
 
 #endif
