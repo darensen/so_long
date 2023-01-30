@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 19:48:43 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:30:05 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*line(char *get_next);
 char	*next(char *str);
 void	creat_window(t_data data);
 int		get_map(char *str);
-int		map_check(char **str, int size);
+int		map_check(char **str, int size, int len);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:08:22 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/27 20:37:46 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:45:18 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int ft_strln(char *str)
 	}
 	return (i);
 }
+
 int	get_map(char *str)
 {	
  	int fd;
@@ -44,7 +45,7 @@ int	get_map(char *str)
 		i++;
 	}
 	close(fd);
-	if (map_check(map, i) == 1)
+	if (map_check(map, i, y) == 1 )
 		return (1);
  	return (0);
 }
