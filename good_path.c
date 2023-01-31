@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:19:19 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/31 17:47:59 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:06:44 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,57 @@ static char    **newmap(char **map, int size)
     return (map1);
 }
 
+static void flood_fill(char **map1 , int y, int i)
+{
+    int l;
+    l = 0;
+   
+    if (map1[y][i] == '1' || map1[y][i] == 'X')
+            return ;
+    else 
+    {
+        map1[y][i] = 'X';
+        while (map1[l])
+        {
+            printf("%s", map1[l]);
+            l++;
+        }
+        printf("\n\n");
+        flood_fill(map1, y + 1, i);
+        flood_fill(map1, y - 1, i);
+        flood_fill(map1, y, i + 1);
+        flood_fill(map1, y, i - 1);
+    }
+}
+
+static int check_all(char **str, int size, int len)
+{
+    int i;
+    int y;
+
+    y = 0;
+    while (y !=  size)
+    {
+        i = 0;
+        while (i != len)
+        {
+            if (str[y][i] == 'C' || str[y][i] == 'E')
+            {    
+                return (0);
+            }
+            i++;
+        }
+        y++;
+    }
+    return (1);
+    
+}
 int good_path(char **map, int y, int i, int size)
 {
     char **map1;
     int o;
+    int b;
+    int len;
 
     o = 0;
     if (o == 0)
@@ -61,10 +108,12 @@ int good_path(char **map, int y, int i, int size)
         map1 = malloc(sizeof(char *) * size);
         map1 = newmap(map ,size);
         o++;
-    } 
-    
-    good_path(map1, y + 1, i, size);
-    good_path(map1, y - 1, i, size);
-    good_path(map1, y, i + 1 ,size);
-    good_path(map1, y, i - 1 ,size);  
+    }
+    flood_fill(map1, y, i);
+    len = ft_strln(map1[1]);
+    if (check_all(map1, size, len) == 1)
+        return (1);
+    else
+        return (0);
+    return (0);
 }
