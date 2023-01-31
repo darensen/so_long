@@ -6,13 +6,13 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:21:13 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/30 18:05:16 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:19:25 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int map_check_C_E_P(char **str)
+static int map_check_C_E_P(char **str , int size)
 {
     int C;
     int E;
@@ -34,7 +34,11 @@ static int map_check_C_E_P(char **str)
             if (str[y][i] == 'E')
                 E++;
             if (str[y][i] == 'P')
+            {
                 P++;
+                if (good_path(str, y, i, size) == 0)
+                    return (0);
+            }
             i++;
         }
         y++;
@@ -65,7 +69,7 @@ int map_check(char **str, int size, int len)
         }
         y++;
     }
-    if (map_check_C_E_P(str) == 0)
+    if (map_check_C_E_P(str, size) == 0)
         return (0);
     return (1);
 }
