@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:19:19 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/31 21:06:44 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:24:02 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ static void flood_fill(char **map1 , int y, int i)
         map1[y][i] = 'X';
         while (map1[l])
         {
-            printf("%s", map1[l]);
+            //printf("%s", map1[l]);
             l++;
         }
-        printf("\n\n");
+        //printf("\n\n");
         flood_fill(map1, y + 1, i);
         flood_fill(map1, y - 1, i);
         flood_fill(map1, y, i + 1);
@@ -99,7 +99,6 @@ int good_path(char **map, int y, int i, int size)
 {
     char **map1;
     int o;
-    int b;
     int len;
 
     o = 0;
@@ -113,7 +112,6 @@ int good_path(char **map, int y, int i, int size)
     len = ft_strln(map1[1]);
     if (check_all(map1, size, len) == 1)
         return (1);
-    else
-        return (0);
+    free(map1);
     return (0);
 }
