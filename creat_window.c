@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:52:57 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/01/31 16:47:38 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:10:00 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	handle_keypress(int keysym, t_data *data)
 	return (0);
 }
 
-
 int    creat_window(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 600, 300, "so_long");
+	
 	
 	mlx_loop_hook(data->mlx_ptr, &handle_no_event, &data);
 	mlx_key_hook(data->win_ptr, handle_keypress, &data);

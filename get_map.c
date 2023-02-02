@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:08:22 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/01 18:46:49 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:11:26 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int get_size(char *str)
 	
 	i = 0;
 	fd = open(str, O_RDONLY);
-	while(map = get_next_line(fd))
+	while((map = get_next_line(fd)))
 	{
 		free(map);
 		i++;
@@ -43,7 +43,6 @@ static int get_size(char *str)
 int	get_map(char *str, char **map)
 {	
  	int fd;
- 	//char **map;
 	int i;
 	int y;
 	int size;
@@ -52,11 +51,10 @@ int	get_map(char *str, char **map)
 	i = 0;
  	fd = open(str, O_RDONLY);
 	size = get_size(str);
-	map = malloc(sizeof(char *) * size + 1);
+	map = malloc(sizeof(char *) * (size + 1));
 	if (!map)
 		return (0);
-	map[size] = NULL;
-	while (s = get_next_line(fd))
+	while ((s = get_next_line(fd)))
 	{
 		map[i] = ft_strdup(s);
 		if (i == 0)
@@ -66,8 +64,13 @@ int	get_map(char *str, char **map)
 		free(s);
 		i++;
 	}
+	map[i] = NULL;
 	close(fd);
-	if (map_check(map, i, y) == 1)
+	printf("%d%d", i, y);
+	if (map_check(map, i, y) == 1 && i != y)
+	{
+		//free_map(map);
 		return (1);
+	}
  	return (0);
 }

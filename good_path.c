@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:19:19 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/01 18:24:02 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:31:18 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ static char    **newmap(char **map, int size)
     char **map1;
     
     i = 0;
-    map1 = malloc(sizeof(char *) * size + 1);
+    map1 = malloc(sizeof(char *) *  (size + 1));
+    if (!map1)
+        return (NULL);
     while(map[i] != NULL)
     {
         map1[i] = ft_strdup(map[i]);
@@ -104,14 +106,16 @@ int good_path(char **map, int y, int i, int size)
     o = 0;
     if (o == 0)
     {
-        map1 = malloc(sizeof(char *) * size);
         map1 = newmap(map ,size);
         o++;
     }
     flood_fill(map1, y, i);
     len = ft_strln(map1[1]);
     if (check_all(map1, size, len) == 1)
+    {
+        free_map(map1);
         return (1);
-    free(map1);
+    }
+    free_map(map1);
     return (0);
 }

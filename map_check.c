@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:21:13 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/01 17:24:25 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:46:46 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int map_check(char **str, int size, int len)
     int y;
     
     y = 0;
-    while (str[y])
+    while (y != size)
     {
         i = 0;
         while (str[y][i])
