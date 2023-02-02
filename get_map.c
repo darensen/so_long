@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:08:22 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 16:11:26 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:14:12 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int get_size(char *str)
 	close(fd);
 	return (i);
 }
-int	get_map(char *str, char **map)
+int	get_map(char *str, t_data *data)
 {	
  	int fd;
 	int i;
@@ -51,26 +51,22 @@ int	get_map(char *str, char **map)
 	i = 0;
  	fd = open(str, O_RDONLY);
 	size = get_size(str);
-	map = malloc(sizeof(char *) * (size + 1));
-	if (!map)
+	data->map = malloc(sizeof(char *) * (size + 1));
+	if (!data->map)
 		return (0);
 	while ((s = get_next_line(fd)))
 	{
-		map[i] = ft_strdup(s);
+		data->map[i] = ft_strdup(s);
 		if (i == 0)
-			y = ft_strln(map[i]);
-		if (y != ft_strln(map[i]))
+			y = ft_strln(data->map[i]);
+		if (y != ft_strln(data->map[i]))
 			return (0);
 		free(s);
 		i++;
 	}
-	map[i] = NULL;
+	data->map[i] = NULL;
 	close(fd);
-	printf("%d%d", i, y);
-	if (map_check(map, i, y) == 1 && i != y)
-	{
-		//free_map(map);
+	if (map_check(data->map, i, y) == 1 && i != y)
 		return (1);
-	}
  	return (0);
 }

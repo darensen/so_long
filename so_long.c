@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 16:14:53 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:14:20 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int main(int ac, char **av)
 {
 	t_data data;
 	
-	data.titlle = av[1];
+	data.title = av[1];
 	if (ac == 2)
 	{
-		if (get_map(data.titlle, data.map) == 1)
+		if (get_map(data.title, &data) == 1)
 		{
 			printf("bonne map");
 			creat_window(&data);
@@ -29,6 +29,6 @@ int main(int ac, char **av)
 			printf("erreur de map");
 		}
 	}
-	//free_map(data.map);
+	free_map(data.map);
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:21:13 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 14:46:46 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:28:20 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int map_check_C_E_P(char **str , int size)
                 E++;
             if (str[y][i] == 'P')
             {
-                P++;
+                P++; 
                 if (good_path(str, y, i, size) == 0)
                     return (0);
             }
