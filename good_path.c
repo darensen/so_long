@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:19:19 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 19:26:44 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:55:30 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ static char    **newmap(char **map, int size)
 
 static void flood_fill(char **map1 , int y, int i)
 {
-    int l;
-    l = 0;
-   
     if (map1[y][i] == '1' || map1[y][i] == 'X' || map1[y][i] == 'F')
             return ;
     if (map1[y][i] == 'E')
@@ -67,12 +64,6 @@ static void flood_fill(char **map1 , int y, int i)
     else
     {
         map1[y][i] = 'X';
-        while (map1[l])
-        {
-            printf("%s", map1[l]);
-            l++;
-        }
-        printf("\n\n");
         flood_fill(map1, y + 1, i);
         flood_fill(map1, y - 1, i);
         flood_fill(map1, y, i + 1);

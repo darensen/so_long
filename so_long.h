@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 18:14:31 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/06 12:01:32 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ typedef struct s_data
 {
 	void *mlx_ptr;
 	void *win_ptr;
+	
 	char *title;
 	char **map;
+
+	int y_pos;
+	int x_pos;
+	
 }	t_data;
+
 int	handle_keypress(int keysym, t_data *data);
 int mousepress(int mouse ,t_data *data);
 
@@ -54,5 +60,6 @@ int	good_path(char **map, int y, int i, int size);
 int	ft_strln(char *str);
 char	*ft_strdup(const char *str);
 void    free_map(char **str);
+void	get_pos(t_data *data, char **str, int size);
 
 #endif

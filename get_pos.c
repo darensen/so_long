@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   get_pos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 20:11:11 by dsenatus         ###   ########.fr       */
+/*   Created: 2023/02/06 11:32:14 by dsenatus          #+#    #+#             */
+/*   Updated: 2023/02/06 12:46:40 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int ac, char **av)
+void    get_pos(t_data *data, char **str, int size)
 {
-	t_data data;
-	
-	data.title = av[1];
-	if (ac == 2)
-	{
-		if (get_map(data.title, &data) == 1)
-		{
-			printf("bonne map");
-			creat_window(&data);
-		}
-		else
-		{
-			printf("erreur de map");
-		}
-	}
-	free_map(data.map);
-	return(0);
+    int x;
+    int y;
+
+    y = 0;
+    while (y != size)
+    {
+        x = 0;
+        while (str[y][x])
+        { 
+            if (str[y][x] == 'P')
+            {
+                data->y_pos = y;
+                data->x_pos = x;
+            }    
+            x++;
+        }
+        y++;
+    }
 }

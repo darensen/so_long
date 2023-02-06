@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:08:22 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/02 18:14:12 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:59:22 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ int	get_map(char *str, t_data *data)
 		i++;
 	}
 	data->map[i] = NULL;
+	get_pos(data,data->map, size);
+	printf("%d, %d", data->y_pos, data->x_pos);
 	close(fd);
-	if (map_check(data->map, i, y) == 1 && i != y)
+	if (map_check(data->map, i, y))
 		return (1);
  	return (0);
 }
