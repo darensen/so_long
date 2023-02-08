@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:06:26 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/08 15:46:33 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:37:20 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,28 @@ void    *put_img(t_data *data, char *str)
 
 void mlx_put(t_data *data, void *path, int x, int y)
 {
-    //printf("%d\n", x);
-
     mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, path, 64 * x, 64 * y);
 }
 
-void put_floor(t_data *data, int x, int y, char **map)
+void put_all(t_data *data, char **map, void *aff, char c)
 {
     int    i;
     int    j;
 
     i = 0;
     j = 0;
-    while ( i < y )
+    while (map[i])
     {
         j = 0;
-        while ( j < x) 
+        while (map[i][j]) 
         {
-            if(map[i][j] == '0') 
+            if(map[i][j] == c)
             {
-              //  printf("%d", i);
-                mlx_put(data, data->floor, j, i);
+                mlx_put(data, aff, j, i);
             }
             j++;
         }
         i++;
     }
 }
+

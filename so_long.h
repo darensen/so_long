@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/08 15:41:34 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:34:54 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ typedef struct s_data
 	
 }	t_data;
 
+int	handle_no_event(void *data);
 int	handle_keypress(int keysym, t_data *data);
-int mousepress(int mouse ,t_data *data);
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
@@ -76,7 +76,10 @@ int get_size(char *str);
 char	**get_mmap(char *str);
 void    *put_img(t_data *data, char *str);
 void mlx_put(t_data *data, void *path, int x, int y);
-void put_floor(t_data *data, int x, int y, char **map);
-
-
+void put_all(t_data *data, char **map, void *aff, char c);
+void    move_up(t_data *data);
+void    move_left(t_data *data);
+void    move_right(t_data *data);
+void    move_down(t_data *data);
+void    destroy(t_data *data);
 #endif

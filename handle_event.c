@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   handle_event.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/08 20:39:08 by dsenatus         ###   ########.fr       */
+/*   Created: 2023/02/08 20:31:36 by dsenatus          #+#    #+#             */
+/*   Updated: 2023/02/08 20:32:45 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int ac, char **av)
+int	handle_no_event(void *data)
 {
-	t_data data;
+	return (0);
+}
+
+int	handle_keypress(int keysym, t_data *data)
+{
+	if (keysym == XK_Escape)
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	if (keysym == XK_w)
+		move_up(data);
+	if (keysym == XK_s)
+		move_down(data);
+	if (keysym == XK_a)
+		move_left(data);
+	if (keysym == XK_d)
+		move_right(data);
 	
-	data.title = av[1];
-	if (ac == 2)
-	{
-		if (get_map(data.title, &data) == 1)
-			creat_window(&data);
-		else
-			printf("erreur de map");
-	}
-	return(0);
+	return (0);
 }

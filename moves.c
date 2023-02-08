@@ -1,0 +1,122 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/08 18:21:40 by dsenatus          #+#    #+#             */
+/*   Updated: 2023/02/08 20:14:10 by dsenatus         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+static int check_C(char **str)
+{
+    int i;
+    int y;
+
+    y = 0;
+    while (str[y])
+    {
+        i = 0;
+        while (str[y][i])
+        {
+            if (str[y][i] == 'C')
+                return (0);
+            i++;
+        }
+        y++;
+    }
+    return (1);
+}
+
+void    move_up(t_data *data)
+{
+    int a;
+    int b;
+
+    a = data->y_pos;
+    b = data->x_pos;
+    
+    if (data->map[a - 1][b] == 'E' && check_C(data->map) == 1)
+    {
+        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    }
+    if (data->map[a - 1][b] != '1' && data->map[a - 1][b] != 'E')
+    {
+        data->map[a][b] = '0';
+        a--;
+        data->map[a][b] = 'P';
+        data->y_pos = a;
+        put_all(data, data->map, data->perso, 'P');
+        put_all(data, data->map, data->floor, '0');
+    }
+}
+
+void    move_down(t_data *data)
+{
+    int a;
+    int b;
+
+    a = data->y_pos;
+    b = data->x_pos;
+    if (data->map[a + 1][b] == 'E' && check_C(data->map) == 1)
+    {
+        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    }
+    if (data->map[a + 1][b] != '1' && data->map[a + 1][b] != 'E')
+    {
+        data->map[a][b] = '0';
+        a++;
+        data->map[a][b] = 'P';
+        data->y_pos = a;
+        put_all(data, data->map, data->perso, 'P');
+        put_all(data, data->map, data->floor, '0');
+    }
+}
+
+void    move_left(t_data *data)
+{
+    int a;
+    int b;
+
+    a = data->y_pos;
+    b = data->x_pos;
+    if (data->map[a][b - 1] == 'E' && check_C(data->map) == 1)
+    {
+        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    }
+    if (data->map[a][b - 1] != '1' && data->map[a][b - 1] != 'E')
+    {
+        data->map[a][b] = '0';
+        b--;
+        data->map[a][b] = 'P';
+        data->x_pos = b;
+        put_all(data, data->map, data->perso, 'P');
+        put_all(data, data->map, data->floor, '0');
+    }
+}
+
+void    move_right(t_data *data)
+{
+    int a;
+    int b;
+
+    a = data->y_pos;
+    b = data->x_pos;
+    if (data->map[a][b + 1] == 'E' && check_C(data->map) == 1)
+    {
+        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    }
+    if (data->map[a][b + 1] != '1' && data->map[a][b + 1] != 'E')
+    {
+        data->map[a][b] = '0';
+        b++;
+        data->map[a][b] = 'P';
+        data->x_pos = b;
+        put_all(data, data->map, data->perso, 'P');
+        put_all(data, data->map, data->floor, '0');
+    }
+}

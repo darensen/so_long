@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:19:19 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/06 11:55:30 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:09:43 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ static int check_all(char **str, int size, int len)
         y++;
     }
     return (1);
-    
 }
 int good_path(char **map, int y, int i, int size)
 {
