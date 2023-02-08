@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/06 12:01:32 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:41:34 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SO_LONG_H
 # include "minilibx-linux/mlx.h"
 # include <X11/keysym.h>
+#include <X11/Xutil.h>
 # include <stdlib.h>
 # include <stdio.h>
 #include <sys/types.h>
@@ -40,6 +41,15 @@ typedef struct s_data
 
 	int y_pos;
 	int x_pos;
+	int x_size;
+	int y_size;
+
+	void *floor;
+	void *collec;
+	void *wall;
+	void *perso;
+	void *exit;
+	void *img_ptr;
 	
 }	t_data;
 
@@ -53,13 +63,20 @@ size_t	ft_strlen(const char *s);
 char	*get_str(char *get_next, int fd);
 char	*line(char *get_next);
 char	*next(char *str);
-int	creat_window(t_data *data);
+void	creat_window(t_data *data);
 int		get_map(char *str, t_data *data);
 int		map_check(char **str, int size, int len);
 int	good_path(char **map, int y, int i, int size);
 int	ft_strln(char *str);
 char	*ft_strdup(const char *str);
 void    free_map(char **str);
-void	get_pos(t_data *data, char **str, int size);
+void	get_pos(t_data *data, char **str, char c);
+void	*mlx_initi(t_data *data);
+int get_size(char *str);
+char	**get_mmap(char *str);
+void    *put_img(t_data *data, char *str);
+void mlx_put(t_data *data, void *path, int x, int y);
+void put_floor(t_data *data, int x, int y, char **map);
+
 
 #endif
