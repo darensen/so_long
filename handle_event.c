@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:31:36 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/08 20:32:45 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:34:05 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	handle_no_event(void *data)
 int	handle_keypress(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		destroy(data);
 	if (keysym == XK_w)
 		move_up(data);
 	if (keysym == XK_s)

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:21:40 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/08 20:14:10 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:46:17 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    move_up(t_data *data)
     
     if (data->map[a - 1][b] == 'E' && check_C(data->map) == 1)
     {
-        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+       destroy(data);
     }
     if (data->map[a - 1][b] != '1' && data->map[a - 1][b] != 'E')
     {
@@ -64,7 +64,7 @@ void    move_down(t_data *data)
     b = data->x_pos;
     if (data->map[a + 1][b] == 'E' && check_C(data->map) == 1)
     {
-        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+       destroy(data);
     }
     if (data->map[a + 1][b] != '1' && data->map[a + 1][b] != 'E')
     {
@@ -86,7 +86,7 @@ void    move_left(t_data *data)
     b = data->x_pos;
     if (data->map[a][b - 1] == 'E' && check_C(data->map) == 1)
     {
-        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+       destroy(data);
     }
     if (data->map[a][b - 1] != '1' && data->map[a][b - 1] != 'E')
     {
@@ -108,7 +108,7 @@ void    move_right(t_data *data)
     b = data->x_pos;
     if (data->map[a][b + 1] == 'E' && check_C(data->map) == 1)
     {
-        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+       destroy(data);
     }
     if (data->map[a][b + 1] != '1' && data->map[a][b + 1] != 'E')
     {

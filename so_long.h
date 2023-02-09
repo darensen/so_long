@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/08 20:34:54 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:28:59 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ void    move_up(t_data *data);
 void    move_left(t_data *data);
 void    move_right(t_data *data);
 void    move_down(t_data *data);
-void    destroy(t_data *data);
+int    destroy(t_data *data);
 #endif
