@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:31:36 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/09 16:34:05 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:18:28 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int	handle_keypress(int keysym, t_data *data)
 		move_left(data);
 	if (keysym == XK_d)
 		move_right(data);
-	
 	return (0);
 }
