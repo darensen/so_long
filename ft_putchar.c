@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/13 20:00:08 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/12/04 15:25:24 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/15 13:48:43 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_putchar(char c)
 {
-	t_data	data;
-
-	data.title = av[1];
-	data.move = 0;
-	if (ac == 2)
-	{
-		if (get_map(data.title, &data) == 1)
-			creat_window(&data);
-		else
-			ft_printf("Error\nmauvaise map");
-	}
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }

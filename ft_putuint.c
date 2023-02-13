@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putuint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 23:03:26 by dsenatus          #+#    #+#             */
-/*   Updated: 2022/11/21 16:46:53 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/12/07 15:18:10 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/15 14:00:59 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_putuint(unsigned int nb)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	if (nb >= 0 && nb <= 9)
+		i += ft_putchar(nb + 48);
+	else if (nb < 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		i += ft_putchar('-');
+		nb = nb * -1;
+		i += ft_putuint(nb);
 	}
-	if (c == '\0' && s[i] == '\0')
-		return ((char *)&s[i]);
-	return (0);
+	else if (nb > 0)
+	{
+		i += ft_putuint(nb / 10);
+		i += ft_putuint(nb % 10);
+	}
+	return (i);
 }

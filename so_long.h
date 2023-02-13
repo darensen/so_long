@@ -6,13 +6,14 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/09 15:28:59 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:45:47 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 # include "minilibx-linux/mlx.h"
+# include "ft_printf.h"
 # include <X11/keysym.h>
 #include <X11/Xutil.h>
 # include <stdlib.h>
@@ -43,13 +44,13 @@ typedef struct s_data
 	int x_pos;
 	int x_size;
 	int y_size;
+	int move;
 
 	void *floor;
 	void *collec;
 	void *wall;
 	void *perso;
 	void *exit;
-	void *img_ptr;
 	
 }	t_data;
 
@@ -82,4 +83,5 @@ void    move_left(t_data *data);
 void    move_right(t_data *data);
 void    move_down(t_data *data);
 int    destroy(t_data *data);
+
 #endif

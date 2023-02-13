@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:21:40 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/09 20:17:41 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:05:42 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void	move_up(t_data *data)
 		data->y_pos = a;
 		put_all(data, data->map, data->perso, 'P');
 		put_all(data, data->map, data->floor, '0');
+		data->move++;
+		ft_printf("mov %d", data->move);
+		write(1, "\n", 1);
 	}
 }
 
@@ -69,6 +72,9 @@ void	move_down(t_data *data)
 		data->y_pos = a;
 		put_all(data, data->map, data->perso, 'P');
 		put_all(data, data->map, data->floor, '0');
+		data->move++;
+		ft_printf("mov %d", data->move);
+		write(1, "\n", 1);
 	}
 }
 
@@ -89,6 +95,9 @@ void	move_left(t_data *data)
 		data->x_pos = b;
 		put_all(data, data->map, data->perso, 'P');
 		put_all(data, data->map, data->floor, '0');
+		data->move++;
+		ft_printf("mov %d", data->move);
+		write(1, "\n", 1);
 	}
 }
 
@@ -109,5 +118,8 @@ void	move_right(t_data *data)
 		data->x_pos = b;
 		put_all(data, data->map, data->perso, 'P');
 		put_all(data, data->map, data->floor, '0');
+		data->move++;
+		ft_printf("mov %d", data->move);
+		write(1, "\n", 1);
 	}
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/13 20:00:08 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/12/06 15:57:26 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/15 14:00:35 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_putstr(char *str)
 {
-	t_data	data;
+	int	i;
 
-	data.title = av[1];
-	data.move = 0;
-	if (ac == 2)
+	i = 0;
+	if (!str)
 	{
-		if (get_map(data.title, &data) == 1)
-			creat_window(&data);
-		else
-			ft_printf("Error\nmauvaise map");
+		write(1, "(null)", 6);
+		i = 6;
+		return (i);
 	}
-	return (0);
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

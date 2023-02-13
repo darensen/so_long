@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_puthexm.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:57:33 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/13 20:00:08 by dsenatus         ###   ########.fr       */
+/*   Created: 2022/12/07 19:00:29 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/15 13:49:51 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_puthexm(unsigned long int nb)
 {
-	t_data	data;
+	int	i;
 
-	data.title = av[1];
-	data.move = 0;
-	if (ac == 2)
+	i = 0;
+	if (nb <= 15)
+		i += ft_putchar("0123456789ABCDEF"[nb]);
+	if (nb > 15)
 	{
-		if (get_map(data.title, &data) == 1)
-			creat_window(&data);
-		else
-			ft_printf("Error\nmauvaise map");
+		i += ft_puthexm(nb / 16);
+		i += ft_puthexm(nb % 16);
 	}
-	return (0);
+	return (i);
 }
