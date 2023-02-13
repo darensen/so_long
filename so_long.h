@@ -6,14 +6,14 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/13 19:45:47 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:51:50 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 # include "minilibx-linux/mlx.h"
-# include "ft_printf.h"
+# include "printf/ft_printf.h"
 # include <X11/keysym.h>
 #include <X11/Xutil.h>
 # include <stdlib.h>
@@ -26,7 +26,6 @@
 # include <X11/X.h>
 # include <unistd.h>
 # include <stddef.h>
-# include "libft/libft.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif

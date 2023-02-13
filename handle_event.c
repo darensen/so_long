@@ -6,16 +6,16 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:31:36 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/13 16:10:13 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:17:26 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	handle_no_event(void *data)
+/*int	handle_no_event(void *data)
 {
 	return (0);
-}
+}*/
 
 int	handle_keypress(int keysym, t_data *data)
 {

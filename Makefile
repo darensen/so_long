@@ -1,33 +1,16 @@
-SRCS = ./
+SRCS = 	so_long.c \
+		content.c \
+		creat_window.c \
+		free_destroy.c \
+		get_map.c \
+		get_pos.c \
+		good_path.c \
+		handle_event.c \
+		map_check.c \
+		moves.c \
+
+
 
 FLAGS = -Wall -Wextra -Werror
 
 CC = cc
-
-OBJS = $(SRCS:.c=.o)
-
-HEAD = ./mlx_linux
-
-AR = ar rsc
-
-RM = rm -f
-
-NAME = so_long.a
-
-.c.o:
-	$(CC) $(FLAGS) -c -I $(HEAD) $< -o $(<:.c=.o)
-
-all: $(NAME)
-        
-$(NAME) : $(OBJS) 
-	$(AR) $(NAME) $(OBJS)
-
-clean: 
-	$(RM) $(OBJS) $(OBJS_BONUS)
-
-fclean:		clean
-		$(RM) $(NAME)
-
-re : fclean all
-
-.PHONY : clean fclean all re

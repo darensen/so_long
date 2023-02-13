@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:52:57 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/13 16:58:22 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:17:31 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*mlx_initi(t_data *data)
 void	creat_window(t_data *data)
 {
 	data = mlx_initi(data);
-	mlx_loop_hook(data->mlx_ptr, &handle_no_event, &data);
+	//mlx_loop_hook(data->mlx_ptr, &handle_no_event, &data);
 	mlx_hook(data->win_ptr, 17, 0, &destroy, data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
 	put_all(data, data->map, data->floor, '0');

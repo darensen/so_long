@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:21:13 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/09 19:38:22 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:11:35 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ int	map_check(char **str, int size, int len)
 					&& str[y][i] != 'C' && str[y][i] != 'E'
 					&& str[y][i] != 'P' && str[y][i] != '\n')
 				return (0);
-			if (str[0][i] != '1' && str[0][i] != '\n'
-					|| str[size - 1][i] != '1' && str[0][i] != '\n')
+			if ((str[0][i] != '1' && str[0][i] != '\n')
+			|| (str[size - 1][i] != '1' && str[0][i] != '\n'))
 				return (0);
 			if (str[y][0] != '1' || str[y][len - 1] != '1')
 				return (0);
