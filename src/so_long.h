@@ -6,13 +6,13 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:57:23 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/02/14 18:15:01 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:21:59 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "../minilibx/minilibx-linux/mlx.h"
+# include "../minilibx/mlx.h"
 # include "../printf/ft_printf.h"
 # include <X11/keysym.h>
 # include <X11/Xutil.h>

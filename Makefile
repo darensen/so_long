@@ -32,7 +32,7 @@ RM = rm -rf
 
 INC =   include
 
-LIB = minilibx/minilibx-linux/libmlx_Linux.a -g3 -lXext -lX11 -I ./minilibx/
+LIB = minilibx/libmlx_Linux.a -g3 -lXext -lX11 -I ./minilibx/
 
 .c.o:
 	$(CC) -I $(INC) $(FLAGS) -c $< -o $(<:.c=.o)
